@@ -1,0 +1,274 @@
+<apex:page standardController="Invoice__c" renderAs="pdf" applyBodyTag="false" extensions="InvoicePDFCtrl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        
+        <style type="text/css">
+        @page{
+            size:A4 portrait;
+            margin-left: 0.8cm; 
+            margin-right: 0.8cm;
+            margin-top: 0.8cm; 
+            margin-bottom: 0.8cm;
+            /*@bottom-right {
+                content: "Page " counter(page) " - " counter(pages);
+                font-family: 'Arial', 'Helvetica', sans-serif;
+                font-size:10px;
+            }*/
+        }
+        h1
+        {
+        color:Blue;
+        }        
+        .tdinvoice{
+            align:right;
+            text-align:right;
+            width:720px;
+        }
+        .tdlogo{
+            align:left;
+            text-align:left;
+            width:720px;
+        }
+        .tdcid{
+            align:right;
+            text-align:right;
+            width:720px;
+        }
+        .pcid{
+            font-size: 80%;
+        }
+        .tdtoadd{
+            align:left;
+            width:380px;
+            
+        }
+        .padd{
+            font-size: 90%;
+        }
+        .padd1{
+            font-size: 60%;
+        }
+        .padd2{
+            font-size: 70%;
+            font-family:verdana;
+        }
+        .thtitle{
+            font-size: 70%;
+            width:580px;
+            align:center;
+            text-align:center;
+        }
+        .thtitle1{
+            font-size: 90%;
+            width:80px;
+            height:40px;
+            align:center;
+            text-align:center;
+        }
+        .black22{
+            font-size: 100%;
+            width:1400px;
+            height:220px;
+            align:center;
+            text-align:center;
+        }
+        .thtitle4{
+            font-size: 85%;
+            width:1400px;
+            align:center;
+            text-align:center;
+        }
+        .thtitle7{
+            font-size: 100%;
+            width:1400px;
+            align:center;
+            text-align:center;
+        }
+        .thtitle5{
+            font-size: 130%;
+            width:1400px;
+            align:right;
+            font-weight:bold; 
+            text-align:right;
+        }
+        .thtitle6{
+            font-size: 130%;
+            width:120px;
+            align:right;
+            font-weight:bold; 
+            text-align:right;
+        }
+        .thqty{
+            font-size: 100%;
+            width:70px;
+            align:center;
+            text-align:center;
+        }
+        .thamount{
+            font-size: 100%;
+            width:120px;
+            align:right;
+            text-align:center;
+        }
+        .grandtotal{
+            font-size: 120%;
+            width:120px;
+            align:right;
+            font-weight:bold;
+            text-align:left;
+        }
+        .pan
+        {
+        font-size: 70%;
+        width:920px; 
+        height:20px;       
+        text-align:left;
+        font-weight:bold;        
+        }
+        .tdcheck
+        {
+        font-size: 70%;
+        width:920px; 
+        height:80px;       
+        text-align:center;
+        font-weight:bold;        
+        }
+        .auth
+        {
+        font-size: 80%;
+        width:920px;
+        height:77px;
+        text-align:right;
+        font-weight:bold;        
+        }
+        .note
+        {
+        font-size: 80%;
+        width:720px;
+        height:0px;
+        text-align:left;
+        font-weight:bold;        
+        }
+        .footer1
+        {
+        font-size: 30%;
+        width:100px;
+        
+        color:#EE9A4D;
+        }
+        .footer2
+        {
+        font-size: 80%;
+        width:1200px;
+        text-align:right;
+        font-weight:bold;
+        color:#ff3333;
+        }
+        </style>
+    </head>
+    <body>
+        
+        <table>
+            <tr>
+                <!---<td><apex:image url="{!$Resource.logo}" width="120px" /></td>-->
+                <td class="tdlogo"><h1 Style="color:red">Lenin Gongati</h1></td>
+                <td class="tdinvoice"><h1>Invoice</h1></td>
+            </tr>
+            ___________________________________________________________________________________________________________________________________
+        </table>
+        
+        <table >
+            <tr style="height:0px;">
+                <td></td>
+                <td class="tdcid"><p class="pcid">Date:&nbsp;&nbsp;<apex:outputField value="{!ivrec.Date__c}"/><br/>Invoice #:&nbsp;&nbsp;<apex:outputField value="{!ivrec.Name}"/> <br/>Customer ID:&nbsp;<apex:outputField value="{!ivrec.Customer_Id__c}"/>  </p></td>
+            </tr>
+            <tr style="height:0px;">
+                <td class="tdtoadd"><p class="padd">To <br/> Mr.<apex:outputField value="{!ivrec.Contact_Person__c}"/>&nbsp;Garu, <br/>
+                    <apex:outputField value="{!ivrec.Account_Name__c}"/>,<br/>
+                    Hyderabad.</p>
+                </td>
+                <td align="right"></td>
+            </tr>
+        </table>
+        <table  >
+            <th class="thtitle">CANDIDATE NAME</th>
+            <th class="thtitle">POSITION</th>
+            <th class="thtitle">PAYMENT TERMS</th>
+            <th class="thtitle">DUE DATE</th>
+            <tr >
+                <td class="thtitle1"><apex:outputField style="font-weight:800" value="{!ivrec.Consultant_Name__c}"/></td>
+                <td class="thtitle1">Salesforce Developer</td>
+                <td class="thtitle1"><apex:outputField value="{!ivrec.PAYMENT_TERMS__c}"/></td>
+                <td class="thtitle1"><apex:outputField value="{!ivrec.Due_Date__c}"/></td>
+            </tr>
+            
+            <table  >
+            <tr >
+                <td class="thqty" >Qty</td>
+                <td class="thtitle7" colspan="2">Description</td>                
+                <td class="thamount">Amount</td>
+            </tr>
+            <tr >
+                <td  class="thqty">1</td>
+                <!---<td class="thtitle4" colspan="2"><p class="padd1" style="word-wrap: break-word">PLACEMENT OF Mrs.<strong> <apex:outputField value="{!ivrec.Consultant_Name__c}"/></strong> FOR THE POSITION OF SFDC - Developer</p></td>-->
+                <td class="thtitle4" colspan="2">PLACEMENT OF Mrs.<strong> <apex:outputField value="{!ivrec.Consultant_Name__c}"/></strong> FOR THE POSITION OF SFDC - Developer</td>
+                <td class="thamount"><apex:outputField value="{!ivrec.Gross_Amount__c}"/></td>
+            </tr>
+            <tr >                
+                <td class="black22" colspan="4">&nbsp;&nbsp;</td>
+            </tr>            
+            <tr >                
+                <td class="thtitle5" colspan="3"><p class="padd1"> Gross Total &nbsp;&nbsp;</p></td>                
+                <td class="thamount"><apex:outputField value="{!ivrec.Gross_Amount__c}"/></td>
+            </tr>
+            <!---<tr >                
+                <td class="thtitle5" colspan="3"><p class="padd1">Service Tax &nbsp;&nbsp;</p></td>                
+                <td class="thamount"><apex:outputField value="{!ivrec.Service_Tax_Amount__c}" rendered="{! If(ivrec.Service_Tax_Amount__c !=0 ,true,false) }"/></td>
+            </tr>
+            <tr >                
+                <td class="thtitle5" colspan="3"><p class="padd1">Swachh Bharat Cess &nbsp;&nbsp;</p></td>                
+                <td class="thamount" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<apex:outputField value="{!ivrec.Swachh_Bharat_Cess_Tax__c}" rendered="{! If(ivrec.Swachh_Bharat_Cess_Tax__c!=0 ,true,false) }"/></td>
+            </tr>
+             <tr >                
+                <td class="thtitle5" colspan="3"><p class="padd1">Krishi Kalyan Cess‎ Tax &nbsp;&nbsp;</p></td>                
+                <td class="thamount" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<apex:outputField value="{!ivrec.Krishi_Kalyan_Cess_Tax__c}" rendered="{! If(ivrec.Krishi_Kalyan_Cess_Tax__c!=0 ,true,false) }"/></td>
+            </tr>---->
+            <tr >
+                <td class="grandtotal" colspan="2"><p class="padd2">Grand Total : &nbsp;{!wordText}&nbsp;Only </p></td>
+                <td class="thtitle6" ><p class="padd1">Net Amount &nbsp;&nbsp;</p></td>                
+                <td class="thamount"><apex:outputField value="{!ivrec.Net_Amount__c}"/></td>
+            </tr>
+            </table>            
+        </table>
+        <table >
+            <tr >                
+                <td class="pan" colspan="3">PAN NUMBER : {!panNo}</td>                
+            </tr>
+            <tr >                
+                <td class="pan" colspan="3">GST NUMBER : </td>
+            </tr>
+        </table>
+        <table >
+            <tr >                
+                <td class="tdcheck" colspan="3">Make all checks payable to [LENIN GONGATI] <br/>Thank you for your business!</td>
+            </tr>
+        </table>
+        <table >
+            <tr >                
+                <td class="auth" colspan="3">Authorized Signatory</td>
+            </tr>
+        </table>
+         <table >
+            <tr >                
+                <td class="note">Note: This is a computer-generated invoice. No signature is required</td>
+            </tr>
+        </table>
+        <table >
+            <tr >
+                <td class="footer1"></td>
+                _______________________________________________________________________________________________________________________________________________
+                <td class="footer2">LENIN GONGATI | Confidential <br/>CORP OFFICE:- Flat No:201,Plot No:1553,Sarvada Apartments,2nd Main, E- Block, AECS Layout, Bengaluru -560037</td>
+            </tr>
+        </table>
+    </body>
+</apex:page>

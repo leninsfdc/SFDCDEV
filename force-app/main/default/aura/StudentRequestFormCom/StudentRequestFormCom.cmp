@@ -1,0 +1,201 @@
+<aura:component controller="StudentClass_Lightning" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="stud" type="Student_Request_Form__c" default="{'sobjectType': 'Student_Request_Form__c',
+                                                                        }"/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+    
+    <article class="slds-card">
+        <div class="slds-grid slds-einstein-header slds-card__header">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            <!--<svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#salesforce1"></use>
+            </svg>-->
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-truncate" title="Einstein">
+                            <a href="javascript:void(0);" class="slds-card__header-link" title="Einstein">
+                                <span class="slds-text-heading_small">Einstein Digital Analytics</span>
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-form">
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title">
+                        <button aria-controls="expando-unique-id" aria-expanded="true" class="slds-button slds-section__title-action">
+                            
+                            <span class="slds-truncate" title="Section Title">Personal Information</span>
+                        </button>
+                    </h3>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-form-element_1-2">
+                                <label class="slds-form-element__label" for="horizontal-input-id-01"> Frist Name </label>
+                                <div class="slds-form-element__control">
+                                    
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Name__c}" updateOn="click"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Name__c}"/>       -->              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal">
+                                <label class="slds-form-element__label" for="horizontal-input-id-02">Last Name</label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Last_Name__c}" updateOn="click"/>
+                                    <lightning:inputField  fieldName="{!v.stud.Last_Name__c}"/>
+                                    <lightning:inputField fieldName="{!v.stud.Last_Name__c}" />
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Email__c}"/>-->  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-form-element_1-2">
+                                <label class="slds-form-element__label" for="horizontal-input-id-01"> Mobile Number </label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Mobile_No__c}" updateOn="click"/>
+                                    <lightning:inputField  fieldName="{!v.stud.Mobile_No__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Name__c}"/>       -->              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal">
+                                <label class="slds-form-element__label" for="horizontal-input-id-02">Email</label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Email__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.Email__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Email__c}"/>-->  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title">
+                        <button aria-controls="expando-unique-id" aria-expanded="true" class="slds-button slds-section__title-action">
+                            
+                            <span class="slds-truncate" title="Section Title">Communication Information</span>
+                        </button>
+                    </h3>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-form-element_1-2">
+                                <label class="slds-form-element__label" for="horizontal-input-id-01"> House No </label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.H_No__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.H_No__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Name__c}"/>       -->              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal">
+                                <label class="slds-form-element__label" for="horizontal-input-id-02">Street</label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Street__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.Street__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Email__c}"/>-->  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-form-element_1-2">
+                                <label class="slds-form-element__label" for="horizontal-input-id-01"> City </label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.City__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.City__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Name__c}"/>       -->              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal">
+                                <label class="slds-form-element__label" for="horizontal-input-id-02">State</label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.State__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.State__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Email__c}"/>-->  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title">
+                        <button aria-controls="expando-unique-id" aria-expanded="true" class="slds-button slds-section__title-action">
+                            
+                            <span class="slds-truncate" title="Section Title">Personal Information</span>
+                        </button>
+                    </h3>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-form-element_1-2">
+                                <label class="slds-form-element__label" for="horizontal-input-id-01"> Courses </label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Courses__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.Courses__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Name__c}"/>       -->              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal">
+                                <label class="slds-form-element__label" for="horizontal-input-id-02">Course Track</label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Course_Track__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.Course_Track__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Email__c}"/>-->  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-form-element_1-2">
+                                <label class="slds-form-element__label" for="horizontal-input-id-01"> Batch Type </label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Batch_Type__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.Batch_Type__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Name__c}"/>       -->              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal">
+                                <label class="slds-form-element__label" for="horizontal-input-id-02">Bach Time</label>
+                                <div class="slds-form-element__control">
+                                    <ui:inputText label="Enter some text" class="field" value="{!v.stud.Bach_Time__c}" updateOn="click"/>
+                                    <lightning:inputField  value="{!v.stud.Bach_Time__c}"/>
+                                    <!--<input type="text" id="horizontal-input-id-01" placeholder="Placeholder Text" class="slds-input" value="{!v.stud.Email__c}"/>-->  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-align--absolute-center">
+                            <lightning:button variant="success" label="Save" title="Success" onclick="{!c.doSave}"/>
+                            <!--<lightning:button variant="success" label="Cancel" title="Success" onclick="{!c.doSave}"/>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</aura:component>

@@ -1,0 +1,33 @@
+<apex:page sidebar="false" showHeader="false">
+
+<apex:includeLightning />
+
+        <div id="stud" />
+
+         <script>
+
+            $Lightning.use("c:StudentRequestApp", function() {
+
+                $Lightning.createComponent(
+
+                    "c:StudentRequestFormCom",
+
+                    {},
+
+                    "stud",
+
+                    function(cmp) {
+
+                        console.log("Component is created!");
+
+                        console.log(cmp);
+
+                    });
+
+                });
+
+        
+
+          </script>
+  
+</apex:page>
